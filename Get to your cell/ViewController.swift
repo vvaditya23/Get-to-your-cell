@@ -31,6 +31,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         namesTableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.cellIdentifier)
         view.addSubview(namesTableView)
         
+        // Select the default row in the table view because first cell is by default visible in the collection view.
+            let defaultSelectedIndexPath = IndexPath(row: 0, section: 0)
+        namesTableView.selectRow(at: defaultSelectedIndexPath, animated: true, scrollPosition: .none)
+        
         //set constranints
         namesTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -92,6 +96,19 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         return cell
     }
+    
+    // UIScrollViewDelegate method to detect scrolling
+        func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+                // Calculate the visible index based on content offset
+                let visibleRect = CGRect(origin: imagesColletionView.contentOffset, size: imagesColletionView.bounds.size)
+                let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+                if let indexPath = imagesColletionView.indexPathForItem(at: visiblePoint) {
+                    // Scroll to the corresponding row in the table view
+                    let selectedRowIndexPath = IndexPath(row: indexPath.item, section: 0)
+                    namesTableView.selectRow(at: selectedRowIndexPath, animated: true, scrollPosition: .middle)
+                }
+        }
+    
     func scrollToCollectionViewItem(at indexPath: IndexPath) {
         // Determine the corresponding index path in the collection view
         let collectionViewIndexPath = IndexPath(item: indexPath.row, section: 0)

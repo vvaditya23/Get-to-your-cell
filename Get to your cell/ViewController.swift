@@ -8,10 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    //UI elements
     let namesTableView = UITableView()
     let imagesColletionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    //data to go into collection view and tableview
     let colors = [UIColor.red, UIColor.green, UIColor.blue, UIColor.yellow, UIColor.orange, UIColor.black, UIColor.purple, UIColor.systemPink, UIColor.brown, UIColor.systemIndigo, UIColor.lightGray, UIColor.darkGray, UIColor.cyan, UIColor.magenta, UIColor.systemMint, UIColor.systemTeal]
     let names = ["Red", "Green", "Blue", "Yellow", "Orange", "Black", "Purple", "Pink", "Brown", "Indigo", "light Gray", "Dark Gray", "Cyan", "Magenta", "Mint", "Teal"]
     
@@ -50,7 +51,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        scrollToCollectionViewItem(at: indexPath)
+        scrollToCollectionViewItem(at: indexPath)   //pass the index number of selection to collection view.
     }
 }
 
@@ -100,6 +101,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 
 }
+//enables horizontal scroll
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

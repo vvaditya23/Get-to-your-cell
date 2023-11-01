@@ -12,6 +12,7 @@
 		486EE4932AF20F6600CB5304 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486EE4922AF20F6600CB5304 /* ViewController.swift */; };
 		486EE4982AF20F6800CB5304 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 486EE4972AF20F6800CB5304 /* Assets.xcassets */; };
 		486EE49B2AF20F6800CB5304 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 486EE4992AF20F6800CB5304 /* LaunchScreen.storyboard */; };
+		486EE4A82AF229E600CB5304 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486EE4A72AF229E600CB5304 /* CustomCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		486EE4972AF20F6800CB5304 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		486EE49A2AF20F6800CB5304 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		486EE49C2AF20F6800CB5304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		486EE4A72AF229E600CB5304 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +59,20 @@
 				486EE48E2AF20F6600CB5304 /* AppDelegate.swift */,
 				486EE4902AF20F6600CB5304 /* SceneDelegate.swift */,
 				486EE4922AF20F6600CB5304 /* ViewController.swift */,
+				486EE4A72AF229E600CB5304 /* CustomCollectionViewCell.swift */,
 				486EE4972AF20F6800CB5304 /* Assets.xcassets */,
 				486EE4992AF20F6800CB5304 /* LaunchScreen.storyboard */,
 				486EE49C2AF20F6800CB5304 /* Info.plist */,
+				486EE4A62AF2237800CB5304 /* Model */,
 			);
 			path = "Get to your cell";
+			sourceTree = "<group>";
+		};
+		486EE4A62AF2237800CB5304 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 				486EE4932AF20F6600CB5304 /* ViewController.swift in Sources */,
 				486EE48F2AF20F6600CB5304 /* AppDelegate.swift in Sources */,
 				486EE4912AF20F6600CB5304 /* SceneDelegate.swift in Sources */,
+				486EE4A82AF229E600CB5304 /* CustomCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

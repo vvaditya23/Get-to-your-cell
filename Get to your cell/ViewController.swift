@@ -49,6 +49,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = names[indexPath.row]
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        scrollToCollectionViewItem(at: indexPath)
+    }
 }
 
 //MARK: Configure collectionView
@@ -88,6 +91,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         return cell
     }
+    func scrollToCollectionViewItem(at indexPath: IndexPath) {
+        // Determine the corresponding index path in the collection view
+        let collectionViewIndexPath = IndexPath(item: indexPath.row, section: 0)
+        
+        // Scroll to the item in the collection view
+        imagesColletionView.scrollToItem(at: collectionViewIndexPath, at: .centeredHorizontally, animated: true)
+    }
+
 }
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,

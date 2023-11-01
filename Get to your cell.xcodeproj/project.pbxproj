@@ -13,6 +13,7 @@
 		486EE4982AF20F6800CB5304 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 486EE4972AF20F6800CB5304 /* Assets.xcassets */; };
 		486EE49B2AF20F6800CB5304 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 486EE4992AF20F6800CB5304 /* LaunchScreen.storyboard */; };
 		486EE4A82AF229E600CB5304 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486EE4A72AF229E600CB5304 /* CustomCollectionViewCell.swift */; };
+		486EE4AA2AF24E0F00CB5304 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486EE4A92AF24E0F00CB5304 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		486EE49A2AF20F6800CB5304 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		486EE49C2AF20F6800CB5304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		486EE4A72AF229E600CB5304 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		486EE4A92AF24E0F00CB5304 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				486EE4902AF20F6600CB5304 /* SceneDelegate.swift */,
 				486EE4922AF20F6600CB5304 /* ViewController.swift */,
 				486EE4A72AF229E600CB5304 /* CustomCollectionViewCell.swift */,
+				486EE4A92AF24E0F00CB5304 /* CustomTableViewCell.swift */,
 				486EE4972AF20F6800CB5304 /* Assets.xcassets */,
 				486EE4992AF20F6800CB5304 /* LaunchScreen.storyboard */,
 				486EE49C2AF20F6800CB5304 /* Info.plist */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				486EE4932AF20F6600CB5304 /* ViewController.swift in Sources */,
+				486EE4AA2AF24E0F00CB5304 /* CustomTableViewCell.swift in Sources */,
 				486EE48F2AF20F6600CB5304 /* AppDelegate.swift in Sources */,
 				486EE4912AF20F6600CB5304 /* SceneDelegate.swift in Sources */,
 				486EE4A82AF229E600CB5304 /* CustomCollectionViewCell.swift in Sources */,

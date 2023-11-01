@@ -12,34 +12,44 @@ class ViewController: UIViewController {
     let namesTableView = UITableView()
     let imagesColletionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    let colors = [UIColor.red, UIColor.green, UIColor.blue, UIColor.yellow, UIColor.orange]
+    let colors = [UIColor.red, UIColor.green, UIColor.blue, UIColor.yellow, UIColor.orange, UIColor.black, UIColor.purple, UIColor.systemPink]
+    let names = ["Red", "Green", "Blue", "Yellow", "Orange", "Black", "Purple", "Pink"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        namesTableView.delegate = self
-        
-        //        setupTableView()
         setupCollectionView()
+        setupTableView()
     }
 }
 
 //MARK: Configure tableView
-//extension ViewController: UITableViewDelegate, UITableViewDataSource {
-//    func setupTableView() {
-////        tableView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//
-//        ])
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        5
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//    }
-//}
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func setupTableView() {
+        namesTableView.delegate = self
+        namesTableView.dataSource = self
+        namesTableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.cellIdentifier)
+        view.addSubview(namesTableView)
+        
+        //set constranints
+        namesTableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            namesTableView.topAnchor.constraint(equalTo: imagesColletionView.bottomAnchor),
+            namesTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            namesTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            namesTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        names.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.cellIdentifier, for: indexPath)
+        cell.textLabel?.text = names[indexPath.row]
+        return cell
+    }
+}
 
 //MARK: Configure collectionView
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -79,7 +89,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
 }
-
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

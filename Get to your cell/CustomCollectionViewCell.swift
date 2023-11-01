@@ -9,7 +9,7 @@ import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
     
-    static let cellIdentifier = "CustomCell"
+    static let cellIdentifier = "CustomCollectionviewCell"
     
     let cellImageView: UIImageView = {
         let cellImageView = UIImageView()

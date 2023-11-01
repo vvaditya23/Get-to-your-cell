@@ -105,7 +105,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
                 if let indexPath = imagesColletionView.indexPathForItem(at: visiblePoint) {
                     // Scroll to the corresponding row in the table view
                     let selectedRowIndexPath = IndexPath(row: indexPath.item, section: 0)
-                    namesTableView.selectRow(at: selectedRowIndexPath, animated: true, scrollPosition: .middle)
+                    namesTableView.selectRow(at: selectedRowIndexPath, animated: true, scrollPosition: .top)
                 }
         }
     

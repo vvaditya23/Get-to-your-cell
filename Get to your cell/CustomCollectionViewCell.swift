@@ -14,7 +14,7 @@ import UIKit
 class CustomCollectionViewCell: UICollectionViewCell {
     
     ///this was used in delegate pattern to trigger the tableview selection
-//    weak var delegate: CollectionViewCellDelegate?
+    //    weak var delegate: CollectionViewCellDelegate?
     
     static let cellIdentifier = "CustomCollectionviewCell"
     
@@ -32,21 +32,22 @@ class CustomCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(cellImageView)
         
         NSLayoutConstraint.activate([
-            cellImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            cellImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
             cellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             cellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            cellImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+//            cellImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            cellImageView.heightAnchor.constraint(equalTo: cellImageView.widthAnchor, multiplier: 9.0/16.0)
         ])
     }
     
     ///this method was used in delegate pattern to trigger the tableview selection
-//    override func didMoveToWindow() {
-//        super.didMoveToWindow()
-//        if window != nil {
-//            delegate?.collectionViewCellDidBecomeVisible(self)
-//        }
-//    }
-
+    //    override func didMoveToWindow() {
+    //        super.didMoveToWindow()
+    //        if window != nil {
+    //            delegate?.collectionViewCellDidBecomeVisible(self)
+    //        }
+    //    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

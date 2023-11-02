@@ -43,7 +43,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         //set constranints
         namesTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            namesTableView.topAnchor.constraint(equalTo: imagesColletionView.bottomAnchor),
+            namesTableView.topAnchor.constraint(equalTo: imagesColletionView.bottomAnchor, constant: 10),
             namesTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             namesTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             namesTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)

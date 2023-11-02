@@ -15,8 +15,9 @@ class ViewController: UIViewController {
     var imagesColletionView: UICollectionView!
     
     //data to go into collection view and tableview
-    let colors = [UIColor.red, UIColor.green, UIColor.blue, UIColor.yellow, UIColor.orange, UIColor.black, UIColor.purple, UIColor.systemPink, UIColor.brown, UIColor.systemIndigo, UIColor.lightGray, UIColor.darkGray, UIColor.cyan, UIColor.magenta, UIColor.systemMint, UIColor.systemTeal]
-    let names = ["Red", "Green", "Blue", "Yellow", "Orange", "Black", "Purple", "Pink", "Brown", "Indigo", "light Gray", "Dark Gray", "Cyan", "Magenta", "Mint", "Teal"]
+//    let colors = [UIColor.red, UIColor.green, UIColor.blue, UIColor.yellow, UIColor.orange, UIColor.black, UIColor.purple, UIColor.systemPink, UIColor.brown, UIColor.systemIndigo, UIColor.lightGray, UIColor.darkGray, UIColor.cyan, UIColor.magenta, UIColor.systemMint, UIColor.systemTeal]
+    let names = ["Battle Grounds Mobile India", "Book My Show", "Candy Crush", "Canva", "Clash of Clans", "Duolingo", "Hotstar", "Lensa", "Netflix", "Paytm", "Zomato/Swiggy"]
+    let images = ["bgmi", "bookMyShow", "candyCrush", "canva", "coc", "duolingo", "hotstar", "lensa", "netflix", "paytm", "zomato_swiggy"]
     
     ///this  was used in delegate pattern to trigger the tableview selection
 //    var visibleIndexPath: IndexPath?
@@ -76,19 +77,19 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         imagesColletionView.dataSource = self
         imagesColletionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: CustomCollectionViewCell.cellIdentifier)
         view.addSubview(imagesColletionView)
-        
+        imagesColletionView.isScrollEnabled = false
         //Set constraints
         imagesColletionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imagesColletionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            imagesColletionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 10),
-            imagesColletionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: -10),
-            imagesColletionView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/4)
+            imagesColletionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            imagesColletionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            imagesColletionView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/3)
         ])
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return colors.count
+            return images.count
         }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -96,7 +97,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         ////this was used in delegate pattern to trigger the tableview selection
 //        cell.delegate = self
-        cell.backgroundColor = colors[indexPath.row]
+        cell.cellImageView.image = UIImage(named: images[indexPath.row])
         return cell
     }
     
@@ -140,7 +141,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func createCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout {
             sectionIndex, layoutEnvironment in
-            let section = self.colors[sectionIndex]
+            let section = self.images[sectionIndex]
             return self.createFeaturedSection()
         }
         return layout

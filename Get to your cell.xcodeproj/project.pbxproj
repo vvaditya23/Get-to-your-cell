@@ -66,16 +66,8 @@
 				486EE4972AF20F6800CB5304 /* Assets.xcassets */,
 				486EE4992AF20F6800CB5304 /* LaunchScreen.storyboard */,
 				486EE49C2AF20F6800CB5304 /* Info.plist */,
-				486EE4A62AF2237800CB5304 /* Model */,
 			);
 			path = "Get to your cell";
-			sourceTree = "<group>";
-		};
-		486EE4A62AF2237800CB5304 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

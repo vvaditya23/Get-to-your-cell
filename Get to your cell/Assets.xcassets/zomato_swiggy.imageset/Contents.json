@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "WhatsApp Image 2023-09-20 at 20.44.51.jpeg",
+      "filename" : "zomato_swiggy.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "zomato_swiggy@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "zomato_swiggy@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

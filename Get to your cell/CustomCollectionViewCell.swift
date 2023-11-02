@@ -21,9 +21,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
     let cellImageView: UIImageView = {
         let cellImageView = UIImageView()
         cellImageView.translatesAutoresizingMaskIntoConstraints = false
-        cellImageView.contentMode = .scaleAspectFill
+        cellImageView.contentMode = .scaleToFill
         cellImageView.clipsToBounds = true
-        cellImageView.layer.cornerRadius = 5
+        cellImageView.layer.cornerRadius = 7
         return cellImageView
     }()
     

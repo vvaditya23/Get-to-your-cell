@@ -6,8 +6,15 @@
 //
 
 import UIKit
+///this was used in delegate pattern to trigger the tableview selection
+//protocol CollectionViewCellDelegate: AnyObject {
+//    func collectionViewCellDidBecomeVisible(_ cell: CustomCollectionViewCell)
+//}
 
 class CustomCollectionViewCell: UICollectionViewCell {
+    
+    ///this was used in delegate pattern to trigger the tableview selection
+//    weak var delegate: CollectionViewCellDelegate?
     
     static let cellIdentifier = "CustomCollectionviewCell"
     
@@ -32,6 +39,14 @@ class CustomCollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    ///this method was used in delegate pattern to trigger the tableview selection
+//    override func didMoveToWindow() {
+//        super.didMoveToWindow()
+//        if window != nil {
+//            delegate?.collectionViewCellDidBecomeVisible(self)
+//        }
+//    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

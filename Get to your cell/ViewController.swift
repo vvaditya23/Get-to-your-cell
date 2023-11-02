@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     let colors = [UIColor.red, UIColor.green, UIColor.blue, UIColor.yellow, UIColor.orange, UIColor.black, UIColor.purple, UIColor.systemPink, UIColor.brown, UIColor.systemIndigo, UIColor.lightGray, UIColor.darkGray, UIColor.cyan, UIColor.magenta, UIColor.systemMint, UIColor.systemTeal]
     let names = ["Red", "Green", "Blue", "Yellow", "Orange", "Black", "Purple", "Pink", "Brown", "Indigo", "light Gray", "Dark Gray", "Cyan", "Magenta", "Mint", "Teal"]
     
+    ///this  was used in delegate pattern to trigger the tableview selection
+//    var visibleIndexPath: IndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -88,13 +91,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             return colors.count
         }
     
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.cellIdentifier, for: indexPath) as! CustomCollectionViewCell
-    
-            cell.backgroundColor = colors[indexPath.row]
-    
-            return cell
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.cellIdentifier, for: indexPath) as! CustomCollectionViewCell
+        
+        ////this was used in delegate pattern to trigger the tableview selection
+//        cell.delegate = self
+        cell.backgroundColor = colors[indexPath.row]
+        return cell
+    }
     
     //used in taking data from tableview to go to respective cell
     func scrollToCollectionViewItem(at indexPath: IndexPath) {
@@ -104,6 +108,33 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         // Scroll to the item in the collection view
         imagesColletionView.scrollToItem(at: collectionViewIndexPath, at: .centeredHorizontally, animated: true)
         }
+    
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        if scrollView == imagesColletionView {
+//            // Calculate the visible index based on content offset
+//            let visibleRect = CGRect(origin: imagesColletionView.contentOffset, size: imagesColletionView.bounds.size)
+//            let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+//            
+//            if let indexPath = imagesColletionView.indexPathForItem(at: visiblePoint) {
+//                // Scroll to the corresponding row in the table view
+//                let selectedRowIndexPath = IndexPath(row: indexPath.item, section: 0)
+//                namesTableView.selectRow(at: selectedRowIndexPath, animated: true, scrollPosition: .none)
+//            }
+//        }
+//    }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        // Get the visible items in the collection view
+//        let visibleIndexPaths = imagesColletionView.indexPathsForVisibleItems
+//        print("Data: \(visibleIndexPaths)")
+//        // Assume you have a function to update the table view selection based on the visible index path
+//        updateTableViewSelection(with: visibleIndexPaths)
+//        }
+//    func updateTableViewSelection(with visibleIndexPaths: [IndexPath]) {
+//            if let firstVisibleIndexPath = visibleIndexPaths.first {
+//                namesTableView.selectRow(at: IndexPath(row: firstVisibleIndexPath.row, section: 0), animated: true, scrollPosition: .none)
+//            }
+//        }
     
     //use in custom paging
     func createCompositionalLayout() -> UICollectionViewLayout {
@@ -131,6 +162,20 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
+///this method was used in delegate pattern to trigger the tableview selection
+//extension ViewController: CollectionViewCellDelegate {
+//    func collectionViewCellDidBecomeVisible(_ cell: CustomCollectionViewCell) {
+//            if let indexPath = imagesColletionView.indexPath(for: cell) {
+//                visibleIndexPath = indexPath
+//                namesTableView.selectRow(at: IndexPath(row: indexPath.item, section: 0), animated: true, scrollPosition: .none)
+//            }
+//        }
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        if let visibleIndexPath = visibleIndexPath {
+//            namesTableView.selectRow(at: IndexPath(row: visibleIndexPath.item, section: 0), animated: true, scrollPosition: .none)
+//        }
+//    }
+//}
 
 ////MARK: Configure collectionView
 //extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {

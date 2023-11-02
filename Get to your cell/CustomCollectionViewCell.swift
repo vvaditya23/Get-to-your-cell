@@ -16,6 +16,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         cellImageView.translatesAutoresizingMaskIntoConstraints = false
         cellImageView.contentMode = .scaleAspectFill
         cellImageView.clipsToBounds = true
+        cellImageView.layer.cornerRadius = 5
         return cellImageView
     }()
     

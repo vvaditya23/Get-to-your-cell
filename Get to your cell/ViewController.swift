@@ -96,6 +96,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         }
     
+    //used in taking data from tableview to go to respective cell
     func scrollToCollectionViewItem(at indexPath: IndexPath) {
         // Determine the corresponding index path in the collection view
         let collectionViewIndexPath = IndexPath(item: indexPath.row, section: 0)
@@ -104,6 +105,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         imagesColletionView.scrollToItem(at: collectionViewIndexPath, at: .centeredHorizontally, animated: true)
         }
     
+    //use in custom paging
     func createCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout {
             sectionIndex, layoutEnvironment in
@@ -119,6 +121,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let layOutItem = NSCollectionLayoutItem(layoutSize: itemSize)
         layOutItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
         
+        //this fractional width value decides the leading & trailing partial showing of cells.
         let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .estimated(350))
         let layOutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layOutItem])
         

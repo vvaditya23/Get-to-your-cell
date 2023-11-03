@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 //    let imagesColletionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     var imagesColletionView: UICollectionView!
-    
+    var currentIndex = 0
     //data to go into collection view and tableview
 //    let colors = [UIColor.red, UIColor.green, UIColor.blue, UIColor.yellow, UIColor.orange, UIColor.black, UIColor.purple, UIColor.systemPink, UIColor.brown, UIColor.systemIndigo, UIColor.lightGray, UIColor.darkGray, UIColor.cyan, UIColor.magenta, UIColor.systemMint, UIColor.systemTeal]
     let names = ["Battle Grounds Mobile India", "Book My Show", "Candy Crush", "Canva", "Clash of Clans", "Duolingo", "Hotstar", "Lensa", "Netflix", "Paytm", "Zomato/Swiggy"]
@@ -160,6 +160,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let layOutSection = NSCollectionLayoutSection(group: layOutGroup)
         layOutSection.orthogonalScrollingBehavior = .groupPagingCentered
+        layOutSection.visibleItemsInvalidationHandler = { [weak self] visibleItems, point, environment in
+            self?.currentIndex = (visibleItems.last?.indexPath.row)!
+//            print("Collection view index: \(self!.currentIndex)")
+            self!.namesTableView.selectRow(at: IndexPath(row: self!.currentIndex - 1, section: 0), animated: true, scrollPosition: .none)
+        }
         return layOutSection
     }
 }

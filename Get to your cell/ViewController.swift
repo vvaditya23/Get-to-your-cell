@@ -31,10 +31,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         namesTableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.cellIdentifier)
         view.addSubview(namesTableView)
         
-        // Select the default row in the table view because first cell is by default visible in the collection view.
-            let defaultSelectedIndexPath = IndexPath(row: 0, section: 0)
-        namesTableView.selectRow(at: defaultSelectedIndexPath, animated: true, scrollPosition: .none)
-        
         //set constranints
         namesTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
